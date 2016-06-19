@@ -22,7 +22,6 @@ public class UserController {
 
         User user=new User();
         user.setUserName("昆明");
-        user.setPassword("ddd");
 
         userList.add(user);
 
