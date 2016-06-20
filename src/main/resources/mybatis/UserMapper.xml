@@ -14,7 +14,7 @@
 
     <!--添加用户-->
     <insert id="insertUser" parameterType="com.rainbow.entity.User">
-        INSERT  INTO  user(userName,sex,birthday,address) VALUE (#{userName},#{sex},#{birthday},#{address})
+        INSERT INTO user(userName,sex,birthday,address) VALUE (#{userName},#{sex},#{birthday},#{address})
 
         <!--自增主键返回
         mysql自增主键，执行insert提交之前自动生成一个自增主键。
@@ -29,29 +29,31 @@ LAST_INSERT_ID()
             select last_insert_id()
         </selectKey>
     </insert>
-<!--非自增主键返回
-使用mysql的uuid()函数生成主键，需要修改表中id字段类型为string，长度设置成35位。
+    <!--非自增主键返回
+    使用mysql的uuid()函数生成主键，需要修改表中id字段类型为string，长度设置成35位。
 
-执行思路：
-先通过uuid()查询到主键，将主键输入 到sql语句中。
+    执行思路：
+    先通过uuid()查询到主键，将主键输入 到sql语句中。
 
-执行uuid()语句顺序相对于insert语句之前执行。
+    执行uuid()语句顺序相对于insert语句之前执行。
 
-  <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
-            select uuid()
-        </selectKey>
--->
+      <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+                select uuid()
+            </selectKey>
+    -->
     <!--oracle主键自增序列
    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
             select 序列名.nextVal()
         </selectKey>
     -->
 
+    <!--删除用户，根据ID删除用户，需要输入id-->
+    <delete id="delUser" parameterType="java.lang.Integer">
+        DELETE from user where id =#{value}
+    </delete>
 
-
-
-    <!--更新用户-->
-    <update id="updateUser">
-        UPDATE
+<!--更新用户-->
+    <update id="updateUser" parameterType="com.rainbow.entity.User">
+        UPDATE user SET userName=#{userName},birthday=#{birthday},sex=#{sex},address=#{address}
     </update>
 </mapper>
