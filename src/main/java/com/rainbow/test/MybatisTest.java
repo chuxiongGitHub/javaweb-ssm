@@ -25,7 +25,7 @@ public class MybatisTest {
     public void findById(){
 sqlSession= MybatisFactory.getSqlSession();
 
-        User user=sqlSession.selectOne("test.findById",25);
+        User user=sqlSession.selectOne("test.findById",32);
 
         System.out.println(user.getUserName());
         System.out.println(user.getAddress());
@@ -53,14 +53,19 @@ sqlSession= MybatisFactory.getSqlSession();
         user.setUserName("陈彩虹");
         user.setBirthday(new Date());
         user.setAddress("昆明市");
-        user.setSex("男");
+        user.setSex("1");
        sqlSession.insert("test.insertUser",user);
+
+        System.out.println(user.getId());
         sqlSession.commit();
 
         sqlSession.close();
+    }
 
-
-
+    /**
+     * 更新用户
+     */
+    public void update(){
 
     }
 }
