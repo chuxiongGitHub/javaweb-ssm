@@ -57,7 +57,6 @@ public class MybatisTest {
         user.setAddress("昆明市");
         user.setSex("1");
         sqlSession.insert("test.insertUser", user);
-
         System.out.println(user.getId());
         sqlSession.commit();
 
@@ -86,7 +85,7 @@ sqlSession=MybatisFactory.getSqlSession();
         User user=new User();
         //必须设置id
         user.setId(1);
-        user.setUserName("中华人民共和国");
+        user.setUserName("中华人民共和国qwerqwer");
         user.setAddress("中国");
         user.setBirthday(new Date());
 sqlSession.update("test.updateUser",user);

@@ -10,9 +10,9 @@
 <head>
     <title>简洁大气快速登录注册模板</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script type="text/javascript" src="/res/js/jquery-1.9.0.min.js"></script>
-    <script type="text/javascript" src="/res/images/login.js"></script>
-    <link href="/res/css/login2.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../res/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="../res/images/login.js"></script>
+    <link href="../res/css/login2.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
