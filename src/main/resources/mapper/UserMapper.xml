@@ -12,7 +12,7 @@ FROM
 where
 user.sex=#{userCustomer.sex}
 AND
-user.username LIKE '%${userCustomer.userName}%'
+user.username LIKE #{userCustomer.userName}
     </select>
 
 

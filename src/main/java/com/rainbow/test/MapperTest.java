@@ -59,7 +59,7 @@ public class MapperTest {
         UserQueryVo userQueryVo = new UserQueryVo();
         UserCustomer userCustomer = new UserCustomer();
         userCustomer.setSex("1");
-        userCustomer.setUserName("中");
+        userCustomer.setUserName("%中%");
         userQueryVo.setUserCustomer(userCustomer);
         //调用方法
         List<UserCustomer> customerList = userMapper.findUserList(userQueryVo);
