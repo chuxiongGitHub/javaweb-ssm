@@ -3,10 +3,18 @@
 PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
 	<!-- 加载属性文件 -->
 	<properties resource="jdbc.properties"/>
 	<!-- 和spring整合后 environments配置将废除-->
+
+	<!--别名配置-->
+	<typeAliases>
+		<!--单个别名配置
+		<typeAlias type="com.rainbow.entity.User" alias="user"></typeAlias>
+		-->
+		<!--批量定义别名-->
+		<package name="com.rainbow.entity"/>
+	</typeAliases>
 	<environments default="development">
 		<environment id="development">
 		<!-- 使用jdbc事务管理，事务控制由mybatis-->
@@ -23,5 +31,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<!-- 加载 映射文件 -->
 <mappers>
 	<mapper resource="mapper/UserMapper.xml"></mapper>
+<!--<mapper class="com.rainbow.mapper.UserMapper"></mapper>-->
+	<!--批量扫描包-->
+	<!--<package name="com.rainbow.mapper"/>-->
 </mappers>
 </configuration>

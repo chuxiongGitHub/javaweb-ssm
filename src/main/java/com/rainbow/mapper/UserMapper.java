@@ -1,6 +1,8 @@
 package com.rainbow.mapper;
 
 import com.rainbow.entity.User;
+import com.rainbow.entity.UserCustomer;
+import com.rainbow.entity.UserQueryVo;
 
 import java.util.List;
 
@@ -19,4 +21,7 @@ public interface UserMapper {
 //    public User updateUser(User user)throws Exception;
 //    //根据用户名模糊查询用户
     public List<User> findByName(String name) throws Exception;
+
+    //综合查询用户
+    public List<UserCustomer> findUserList(UserQueryVo userQueryVo)throws Exception;
 }

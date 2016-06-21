@@ -3,8 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.rainbow.mapper.UserMapper">
-<!--根据id来查询用户-->
-    <select id="findUserById" parameterType="int" resultType="com.rainbow.entity.User">
+    <!--用户信息的综合查询-->
+    <select id="findUserList" parameterType="userQueryVo" resultType="userCustomer">
+SELECT
+	*
+FROM
+	USER
+where
+user.sex=#{userCustomer.sex}
+AND
+user.username LIKE '%${userCustomer.userName}%'
+    </select>
+
+
+    <!--根据id来查询用户-->
+    <select id="findUserById" parameterType="int" resultType="user">
 select * from user where id=#{id}
     </select>
     <select id="findByName" parameterType="java.lang.String" resultType="com.rainbow.entity.User">
