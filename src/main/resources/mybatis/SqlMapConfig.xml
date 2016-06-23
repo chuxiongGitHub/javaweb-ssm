@@ -31,6 +31,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<!-- 加载 映射文件 -->
 <mappers>
 	<mapper resource="mapper/UserMapper.xml"></mapper>
+	<mapper resource="mapper/studentMapper.xml"></mapper>
+	<mapper resource="mapper/ItemsMapper.xml"></mapper>
 <!--<mapper class="com.rainbow.mapper.UserMapper"></mapper>-->
 	<!--批量扫描包-->
 	<!--<package name="com.rainbow.mapper"/>-->

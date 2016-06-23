@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rainbow.mapper.StudentMapper">
+<select id="findUser" parameterType="com.rainbow.entity.StudentQueryVo" resultType="com.rainbow.entity.StudentCustomer">
+    select * from student where student.sex=#{studentCustomer.sex} and student.username like #{studentCustomer.username}
+</select>
+    <!--根据id来查询用户-->
+    <select id="findUserById" parameterType="com.rainbow.entity.StudentQueryVo" resultType="com.rainbow.entity.StudentCustomer">
+        select * from student where student.id=#{studentCustomer.id}
+    </select>
+    <!--删除用户-->
+    <delete id="delUser" parameterType="com.rainbow.entity.StudentQueryVo">
+        DELETE from student where student.id=#{studentCustomer.id}
+    </delete>
+    <!--新增用户-->
+
+    <insert id="insertUser" parameterType="com.rainbow.entity.StudentQueryVo">
+        <selectKey order="AFTER" keyProperty="studentCustomer.id" resultType="java.lang.Integer">
+            select last_insert_id()
+        </selectKey>
+        insert into student(student.username,student.sex,student.address,student.detail)VALUES (#{studentCustomer.username},
+        #{studentCustomer.sex},#{studentCustomer.address},#{studentCustomer.detail}
+        )
+
+    </insert>
+</mapper>
