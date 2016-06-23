@@ -16,4 +16,6 @@ public interface ItemsMapper {
     //模糊查询（多条件查询）
 public List<ItemsCustomer> findByName(ItemsQueryVo itemsQueryVo)throws Exception;
 
+    public List<ItemsCustomer> findByIf(ItemsQueryVo itemsQueryVo) throws Exception;
+
 }

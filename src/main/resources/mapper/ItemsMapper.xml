@@ -13,4 +13,17 @@
         where
         items.price=#{itemsCustomer.price} and items.detail like #{itemsCustomer.detail}
     </select>
+
+    <!--动态SQL语句-->
+    <select id="findByIf" parameterType="com.rainbow.entity.ItemsQueryVo" resultType="com.rainbow.entity.ItemsCustomer">
+        select * from items
+        <where>
+            <if test="itemsCustomer.price!=null and itemsCustomer.price!=''">
+                and items.price=#{itemsCustomer.price}
+            </if>
+            <if test="itemsCustomer.detail!=null and itemsCustomer.detail!=''">
+                and items.detail like '%${itemsCustomer.detail}%'
+            </if>
+        </where>
+    </select>
 </mapper>

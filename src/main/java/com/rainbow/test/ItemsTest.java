@@ -44,8 +44,28 @@ public class ItemsTest {
         itemsCustomer.setDetail("%质量%");
         itemsQueryVo.setItemsCustomer(itemsCustomer);
 
-        List<ItemsCustomer> list=itemsMapper.findByName(itemsQueryVo);
-        System.out.println(list);
+        List<ItemsCustomer> list = itemsMapper.findByName(itemsQueryVo);
+        System.out.println(list.get(0).getDetail());
+        sqlSession.close();
+    }
+
+    /**
+     * 动态SQL测试
+     */
+    @Test
+    public void findTest() throws Exception {
+        sqlSession = MybatisFactory.getSqlSession();
+
+        ItemsMapper itemsMapper = sqlSession.getMapper(ItemsMapper.class);
+
+        ItemsCustomer itemsCustomer = new ItemsCustomer();
+        ItemsQueryVo itemsQueryVo = new ItemsQueryVo();
+        itemsCustomer.setPrice(200);
+        itemsCustomer.setDetail("质量");
+        itemsQueryVo.setItemsCustomer(itemsCustomer);
+
+        List<ItemsCustomer> list = itemsMapper.findByIf(itemsQueryVo);
+        System.out.println(list.get(1).getDetail());
         sqlSession.close();
     }
 }
