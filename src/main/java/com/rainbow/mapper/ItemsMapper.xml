@@ -6,8 +6,9 @@
     <select id="findItemsById" parameterType="int" resultType="com.rainbow.entity.Items">
         select * from items where id=#{id}
     </select>
-<!--多条件查询-->
-    <select id="findByName" parameterType="com.rainbow.entity.ItemsQueryVo" resultType="com.rainbow.entity.ItemsCustomer">
+    <!--多条件查询-->
+    <select id="findByName" parameterType="com.rainbow.entity.ItemsQueryVo"
+            resultType="com.rainbow.entity.ItemsCustomer">
 
         select * from  items
         where
