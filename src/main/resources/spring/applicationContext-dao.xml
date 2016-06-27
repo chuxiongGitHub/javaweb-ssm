@@ -39,8 +39,4 @@
 		<property name="basePackage" value="com.rainbow.mapper"></property>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
-
-
-
-
 </beans>

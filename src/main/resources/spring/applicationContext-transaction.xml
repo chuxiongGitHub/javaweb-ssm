@@ -36,9 +36,9 @@
 		<tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
 	</tx:attributes>
 </tx:advice>
-<!-- aop
+<!-- aop -->
 <aop:config>
-	<aop:advisor advice-ref="txAdvice" pointcut="execution(* cn.itcast.ssm.service.impl.*.*(..))"/>
+	<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.rainbow.service.impl.*.*(..))"/>
 </aop:config>
--->
+
 </beans>

@@ -10,5 +10,6 @@ import java.util.List;
  * 一事专注，便是动人；一生坚守，便是深邃！
  */
 public interface ItemsMapperCustomer {
+    //查询商品列表
 public List<ItemsCustomer> findItemsList(ItemsQueryVo itemsQueryVo)throws Exception;
 }
