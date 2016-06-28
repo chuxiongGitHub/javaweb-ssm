@@ -1,5 +1,6 @@
 package com.rainbow.controller;
 
+import com.rainbow.entity.Items;
 import com.rainbow.entity.ItemsCustomer;
 import com.rainbow.service.ItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,24 +11,27 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 /**
- * Created by rainbow on 2016/6/24.
+ * Created by rainbow on 2016/6/28.
  * 一事专注，便是动人；一生坚守，便是深邃！
  */
 @Controller
-public class ItemsController {
-//注入service
+public class ItemsEdit {
+    //注入service
     @Autowired
     private ItemsService itemsService;
-    @RequestMapping(value = "/queryItems")
-    public ModelAndView queryItems()throws Exception{
-        System.out.println("调用service方法获取数据");
-        List<ItemsCustomer> itemsList=itemsService.findItemsList(null);
+    @RequestMapping(value = "/itemsEdit")
+    public void edit()throws Exception{
+        List<ItemsCustomer> itemsCustomers=itemsService.findItemsList(null);
 
-        System.out.println("得到的数据："+itemsList.get(1).getName());
+        Items items=new Items();
+        items.setName("dd");
+
         ModelAndView modelAndView=new ModelAndView();
-        modelAndView.addObject("itemsList",itemsList);
-        modelAndView.setViewName("itemsList");
-        return modelAndView;
+
+        modelAndView.setViewName("");
+
+
+
 
     }
 }

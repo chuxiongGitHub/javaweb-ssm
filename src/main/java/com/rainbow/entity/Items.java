@@ -2,21 +2,24 @@ package com.rainbow.entity;
 
 import java.util.Date;
 
-/**
- * Created by rainbow on 2016/6/23.
- * 一事专注，便是动人；一生坚守，便是深邃！
- */
 public class Items {
-    private int id;
+    private Integer id;
+
     private String name;
-    private Integer price;
+
+    private Float price;
+
+    private String pic;
+
+    private Date createtime;
+
     private String detail;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -25,23 +28,15 @@ public class Items {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name == null ? null : name.trim();
     }
 
-    public Integer getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Float price) {
         this.price = price;
-    }
-
-    public String getDetail() {
-        return detail;
-    }
-
-    public void setDetail(String detail) {
-        this.detail = detail;
     }
 
     public String getPic() {
@@ -49,18 +44,22 @@ public class Items {
     }
 
     public void setPic(String pic) {
-        this.pic = pic;
+        this.pic = pic == null ? null : pic.trim();
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreatetime() {
+        return createtime;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
-    private String pic;
-    private Date createTime;
+    public String getDetail() {
+        return detail;
+    }
 
+    public void setDetail(String detail) {
+        this.detail = detail == null ? null : detail.trim();
+    }
 }

@@ -40,7 +40,7 @@ public class ItemsTest {
         ItemsCustomer itemsCustomer = new ItemsCustomer();
         ItemsQueryVo itemsQueryVo = new ItemsQueryVo();
 
-        itemsCustomer.setPrice(200);
+        itemsCustomer.setPrice(200f);
         itemsCustomer.setDetail("%质量%");
         itemsQueryVo.setItemsCustomer(itemsCustomer);
 
@@ -60,7 +60,7 @@ public class ItemsTest {
 
         ItemsCustomer itemsCustomer = new ItemsCustomer();
         ItemsQueryVo itemsQueryVo = new ItemsQueryVo();
-        itemsCustomer.setPrice(200);
+        itemsCustomer.setPrice(200f);
         itemsCustomer.setDetail("质量");
         itemsQueryVo.setItemsCustomer(itemsCustomer);
 

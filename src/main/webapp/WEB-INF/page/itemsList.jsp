@@ -1,7 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,7 +11,7 @@
 <title>查询商品列表</title>
 </head>
 <body> 
-<form action="${pageContext.request.contextPath }/queryItem" method="post">
+<form action="${pageContext.request.contextPath }/item/queryItems" method="post">
 查询条件：
 <table width="100%" border=1>
 <tr>
@@ -25,12 +27,13 @@
 	<td>商品描述</td>
 	<td>操作</td>
 </tr>
-<c:forEach items="${itemsList }" var="item">
+<c:forEach items="${itemsList}" var="data">
 <tr>
-	<td>${item.name }</td>
-	<td>${item.price }</td>
-	<td><fmt:formatDate value="${item.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-	<td>${item.detail }</td>
+	<td>${data.name }</td>
+	<td>${data.price }</td>
+	<%--<td><fmt:formatDate value="${item.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>--%>
+	<td>${data.createtime}</td>
+	<td>${data.detail }</td>
 	
 	<td><a href="${pageContext.request.contextPath }/editItems?id=${item.id}">修改</a></td>
 
