@@ -21,7 +21,7 @@ public class UserController {
         List<User> userList=new ArrayList<User>();
 
         User user=new User();
-        user.setUserName("昆明");
+       user.setUsername("昆明");
 
         userList.add(user);
 

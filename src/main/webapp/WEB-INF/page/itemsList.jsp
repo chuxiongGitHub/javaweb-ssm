@@ -32,7 +32,7 @@
 	<td>${data.name }</td>
 	<td>${data.price }</td>
 	<%--<td><fmt:formatDate value="${item.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>--%>
-	<td>${data.createtime}</td>
+	<td><fmt:formatDate value="${data.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 	<td>${data.detail }</td>
 	
 	<td><a href="${pageContext.request.contextPath }/editItems?id=${item.id}">修改</a></td>

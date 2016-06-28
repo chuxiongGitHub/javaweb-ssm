@@ -1,27 +1,30 @@
 package com.rainbow.mapper;
 
 import com.rainbow.entity.User;
-import com.rainbow.entity.UserCustomer;
-import com.rainbow.entity.UserQueryVo;
-
+import com.rainbow.entity.UserExample;
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
-/**
- * Created by rainbow on 2016/6/21.
- * 每天进步一小步
- */
 public interface UserMapper {
-    //根据Id查询用户
-    public User findUserById(int id) throws Exception;
-    //插入用户
-//    public void insertUser(User user)throws Exception;
-//    //删除用户
-//    public void delUser(int id)throws Exception;
-//    //更新用户
-//    public User updateUser(User user)throws Exception;
-//    //根据用户名模糊查询用户
-    public List<User> findByName(String name) throws Exception;
+    int countByExample(UserExample example);
 
-    //综合查询用户
-    public List<UserCustomer> findUserList(UserQueryVo userQueryVo)throws Exception;
+    int deleteByExample(UserExample example);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(User record);
+
+    int insertSelective(User record);
+
+    List<User> selectByExample(UserExample example);
+
+    User selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
+
+    int updateByExample(@Param("record") User record, @Param("example") UserExample example);
+
+    int updateByPrimaryKeySelective(User record);
+
+    int updateByPrimaryKey(User record);
 }

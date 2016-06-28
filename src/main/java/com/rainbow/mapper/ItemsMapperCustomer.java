@@ -12,4 +12,8 @@ import java.util.List;
 public interface ItemsMapperCustomer {
     //查询商品列表
 public List<ItemsCustomer> findItemsList(ItemsQueryVo itemsQueryVo)throws Exception;
+    //修改商品
+
+
+
 }

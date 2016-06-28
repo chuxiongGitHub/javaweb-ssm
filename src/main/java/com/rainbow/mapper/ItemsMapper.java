@@ -1,21 +1,36 @@
 package com.rainbow.mapper;
 
 import com.rainbow.entity.Items;
-import com.rainbow.entity.ItemsCustomer;
-import com.rainbow.entity.ItemsQueryVo;
-
+import com.rainbow.entity.ItemsExample;
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
-/**
- * Created by rainbow on 2016/6/23.
- * 一事专注，便是动人；一生坚守，便是深邃！
- */
 public interface ItemsMapper {
-    //根据id查询信息
-    public Items findItemsById(int id) throws Exception;
-    //模糊查询（多条件查询）
-public List<ItemsCustomer> findByName(ItemsQueryVo itemsQueryVo)throws Exception;
+    int countByExample(ItemsExample example);
 
-    public List<ItemsCustomer> findByIf(ItemsQueryVo itemsQueryVo) throws Exception;
+    int deleteByExample(ItemsExample example);
 
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(Items record);
+
+    int insertSelective(Items record);
+
+    List<Items> selectByExampleWithBLOBs(ItemsExample example);
+
+    List<Items> selectByExample(ItemsExample example);
+
+    Items selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") Items record, @Param("example") ItemsExample example);
+
+    int updateByExampleWithBLOBs(@Param("record") Items record, @Param("example") ItemsExample example);
+
+    int updateByExample(@Param("record") Items record, @Param("example") ItemsExample example);
+
+    int updateByPrimaryKeySelective(Items record);
+
+    int updateByPrimaryKeyWithBLOBs(Items record);
+
+    int updateByPrimaryKey(Items record);
 }
