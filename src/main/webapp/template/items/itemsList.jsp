@@ -9,11 +9,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>查询商品列表</title>
+	<link rel="stylesheet" href="/res/bootstrap/css/bootstrap.css" type="text/css">
+	<script src="/res/bootstrap/js/jquery-2.2.2.js"></script>
+	<script src="/res/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body> 
 <form action="${pageContext.request.contextPath }/item/queryItems" method="post">
 查询条件：
-<table width="100%" border=1>
+<table class="table table-bordered table-hover">
 <tr>
 <td><input type="submit" value="查询"/></td>
 </tr>
@@ -21,6 +24,7 @@
 商品列表：
 <table width="100%" border=1>
 <tr>
+	<td>序号</td>
 	<td>商品名称</td>
 	<td>商品价格</td>
 	<td>生产日期</td>
@@ -29,6 +33,7 @@
 </tr>
 <c:forEach items="${itemsList}" var="data">
 <tr>
+	<td></td>
 	<td>${data.name }</td>
 	<td>${data.price }</td>
 	<%--<td><fmt:formatDate value="${item.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>--%>
@@ -42,6 +47,15 @@
 
 </table>
 </form>
+<script type="text/javascript">
+	$(function(){
+		var len=$('table tr').length;
+		console.log(len);
+		for(var i=0;i<len;i++){
+			$('table tr:eq('+i+')td first').text(i-1);
+		}
+	});
+</script>
 </body>
 
 </html>

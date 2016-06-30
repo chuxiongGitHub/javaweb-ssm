@@ -13,6 +13,7 @@
     <title>用户列表</title>
 </head>
 <body>
+<table class="table table-bordered table-hover"></table>
 <form action="${pageContext.request.contextPath}/page/userList" method="post">
     <table border="1">
         <tr>
