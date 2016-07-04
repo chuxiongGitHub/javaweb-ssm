@@ -26,8 +26,16 @@ public class ItemsController {
         System.out.println("得到的数据："+itemsList.get(1).getName());
         ModelAndView modelAndView=new ModelAndView();
         modelAndView.addObject("itemsList",itemsList);
-        modelAndView.setViewName("itemsList");
+        modelAndView.setViewName("items/itemsList");
         return modelAndView;
 
+    }
+    //商品修改的controller
+    public ModelAndView editItems()throws Exception{
+        //返回modelAndView
+        ModelAndView modelAndView=new ModelAndView();
+
+modelAndView.setViewName("items/editItems");
+        return modelAndView;
     }
 }
