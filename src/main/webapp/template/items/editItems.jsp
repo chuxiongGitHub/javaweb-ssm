@@ -12,7 +12,7 @@
     <title>修改商品信息</title>
 </head>
 <body>
-<form id="itemForm" action="${pageContext.request.contextPath}/items/editItemsSubmit" method="post">
+<form id="itemForm" action="${pageContext.request.contextPath}/editItemsSubmit" method="get">
 <input type="hidden" name="id" value="${itemsCustomer.id}">
     修改商品信息：
 <table width="100%" border="1">

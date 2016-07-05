@@ -6,8 +6,10 @@ import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -15,14 +17,18 @@ import java.util.List;
  * 一事专注，便是动人；一生坚守，便是深邃！
  */
 @Controller
-@RequestMapping(value = "/items")
+//@RequestMapping(value = "/items")
 public class ItemsController {
     //注入service
     @Autowired
     private ItemsService itemsService;
 
-    @RequestMapping(value = "/queryItems")
-    public ModelAndView queryItems() throws Exception {
+    @RequestMapping(value = "/queryItems" )
+    public ModelAndView queryItems(HttpServletRequest request) throws Exception {
+        //测试forward方法request是共享的，获取到id
+        System.out.println("共享的id是："+request.getParameter("id"));
+
+
         System.out.println("调用service方法获取数据");
         List<ItemsCustomer> itemsList = itemsService.findItemsList(null);
 
@@ -36,7 +42,7 @@ public class ItemsController {
 
     //商品修改信息页面的展示
     @RequestMapping(value = "/editItems")
-    public ModelAndView editItems() throws Exception {
+    public ModelAndView editItems(HttpServletRequest request) throws Exception {
         //调用service根据id查出商品信息
         ItemsCustomer itemsCustomer = itemsService.findById(1);
         //返回modelAndView
@@ -49,12 +55,15 @@ public class ItemsController {
 
     //商品信息提交
     @RequestMapping(value = "/editItemsSubmit")
-    public ModelAndView editItemsSubmit() throws Exception {
+    public String editItemsSubmit(HttpServletRequest request) throws Exception {
 //调用service更新商品信息，页面需要将商品信息传递到此方法
 
-        ModelAndView modelAndView = new ModelAndView();
-//测试返回一个成功页面
-        modelAndView.setViewName("success");
-        return modelAndView;
+//        ModelAndView modelAndView = new ModelAndView();
+////测试返回一个成功页面
+//        modelAndView.setViewName("success");
+//        return modelAndView;
+       //return "redirect:queryItems";
+        return "forward:queryItems";
+
     }
 }
