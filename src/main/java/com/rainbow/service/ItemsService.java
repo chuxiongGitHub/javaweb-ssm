@@ -14,7 +14,13 @@ public interface ItemsService {
     public List<ItemsCustomer> findItemsList(ItemsQueryVo itemsQueryVo)throws Exception;
     //根据ID查询商品信息
     public ItemsCustomer findById(Integer id)throws Exception;
-    //修改商品信息
+
+    /**
+     *
+     * @param id 修改商品信息的id
+     * @param itemsCustomer 要修改的商品信息
+     * @throws Exception
+     */
     public void updateItems(Integer id,ItemsCustomer itemsCustomer)throws Exception;
 
 

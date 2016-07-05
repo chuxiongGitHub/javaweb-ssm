@@ -14,7 +14,7 @@
 	<script src="/res/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body> 
-<form action="${pageContext.request.contextPath }/item/queryItems" method="post">
+<form action="${pageContext.request.contextPath }/items/queryItems" method="post">
 查询条件：
 <table class="table table-bordered table-hover">
 <tr>
@@ -40,7 +40,7 @@
 	<td><fmt:formatDate value="${data.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 	<td>${data.detail }</td>
 	
-	<td><a href="${pageContext.request.contextPath }/editItems?id=${item.id}">修改</a></td>
+	<td><a href="${pageContext.request.contextPath }/items/editItems?id=${data.id}">修改</a></td>
 
 </tr>
 </c:forEach>

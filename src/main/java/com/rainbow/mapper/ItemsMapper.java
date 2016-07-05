@@ -1,10 +1,8 @@
 package com.rainbow.mapper;
 
-
-import java.util.List;
-
 import com.rainbow.entity.Items;
 import com.rainbow.entity.ItemsExample;
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface ItemsMapper {

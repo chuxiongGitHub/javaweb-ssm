@@ -21,17 +21,25 @@ public class ItemsServiceImpl implements ItemsService {
     private ItemsMapperCustomer itemsMapperCustomer;
     @Autowired
     private ItemsMapper itemsMapper;
+
     public List<ItemsCustomer> findItemsList(ItemsQueryVo itemsQueryVo) throws Exception {
 
         return itemsMapperCustomer.findItemsList(itemsQueryVo);
     }
 
+    /**
+     * 根据id查询出商品信息
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public ItemsCustomer findById(Integer id) throws Exception {
-        Items items=itemsMapper.selectByPrimaryKey(id);
+        Items items = itemsMapper.selectByPrimaryKey(id);
 
-        ItemsCustomer itemsCustomer=new ItemsCustomer();
-        //讲items的属性值拷贝到itemsCustomer
-        BeanUtils.copyProperties(items,itemsCustomer);
+        ItemsCustomer itemsCustomer = new ItemsCustomer();
+        //将items的属性值拷贝到itemsCustomer
+        BeanUtils.copyProperties(items, itemsCustomer);
 
         return itemsCustomer;
     }
