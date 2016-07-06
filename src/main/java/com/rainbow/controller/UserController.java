@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,17 +17,17 @@ import java.util.List;
 @Controller
 public class UserController {
     @RequestMapping(value = "/user")
-    public ModelAndView modelAndView()throws Exception{
+    public ModelAndView modelAndView() throws Exception {
 
-        List<User> userList=new ArrayList<User>();
+        List<User> userList = new ArrayList<User>();
 
-        User user=new User();
-       user.setUsername("昆明");
-
+        User user = new User();
+        user.setUsername("昆明");
+        user.setBirthday(new Date());
         userList.add(user);
 
-        ModelAndView modelAndView=new ModelAndView();
-        modelAndView.addObject(userList);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("userList", userList);
         modelAndView.setViewName("userList");
 
         return modelAndView;

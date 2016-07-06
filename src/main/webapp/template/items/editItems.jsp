@@ -10,12 +10,13 @@
 <html>
 <head>
     <title>修改商品信息</title>
+    <link rel="stylesheet" type="text/css" href="res/css/bootstrap.css">
 </head>
 <body>
 <form id="itemForm" action="${pageContext.request.contextPath}/editItemsSubmit" method="get">
 <input type="hidden" name="id" value="${itemsCustomer.id}">
     修改商品信息：
-<table width="100%" border="1">
+<table class="table table-bordered table-hover">
 <tr>
     <td>商品名称</td>
     <td><input type="text" name="name" value="${itemsCustomer.name}"></td>

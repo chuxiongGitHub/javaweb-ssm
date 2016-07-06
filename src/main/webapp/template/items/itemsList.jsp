@@ -9,20 +9,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>查询商品列表</title>
-	<link rel="stylesheet" href="/res/bootstrap/css/bootstrap.css" type="text/css">
-	<script src="/res/bootstrap/js/jquery-2.2.2.js"></script>
-	<script src="/res/bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="res/bootstrap/css/bootstrap.css" type="text/css">
+	<script src="res/bootstrap/js/jquery-2.2.2.js"></script>
+	<script src="res/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body> 
 <form action="${pageContext.request.contextPath }/queryItems" method="post">
 查询条件：
-<table class="table table-bordered table-hover">
-<tr>
-<td><input type="submit" value="查询"/></td>
-</tr>
-</table>
+	<div>
+		<input type="text">
+		<input type="submit" value="查询"/>
+	</div>
 商品列表：
-<table width="100%" border=1>
+<table class="table table-bordered table-hover">
 <tr>
 	<td>序号</td>
 	<td>商品名称</td>
@@ -51,8 +50,8 @@
 	$(function(){
 		var len=$('table tr').length;
 		console.log(len);
-		for(var i=0;i<len;i++){
-			$('table tr:eq('+i+')td first').text(i-1);
+		for(var i=1;i<len;i++){
+			$('table tr:eq('+i+') td:first').text(i);
 		}
 	});
 </script>

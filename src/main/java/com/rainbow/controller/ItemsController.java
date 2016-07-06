@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,9 +43,9 @@ public class ItemsController {
 
     //商品修改信息页面的展示
     @RequestMapping(value = "/editItems")
-    public ModelAndView editItems(HttpServletRequest request) throws Exception {
+    public ModelAndView editItems(@RequestParam(value = "id") Integer items_id) throws Exception {
         //调用service根据id查出商品信息
-        ItemsCustomer itemsCustomer = itemsService.findById(1);
+        ItemsCustomer itemsCustomer = itemsService.findById(items_id);
         //返回modelAndView
         ModelAndView modelAndView = new ModelAndView();
         //将商品信息放入model
@@ -56,13 +57,14 @@ public class ItemsController {
     //商品信息提交
     @RequestMapping(value = "/editItemsSubmit")
     public String editItemsSubmit(HttpServletRequest request) throws Exception {
+        System.out.println("提交的id是："+request.getParameter("id"));
 //调用service更新商品信息，页面需要将商品信息传递到此方法
 
 //        ModelAndView modelAndView = new ModelAndView();
 ////测试返回一个成功页面
 //        modelAndView.setViewName("success");
 //        return modelAndView;
-       //return "redirect:queryItems";
+      // return "redirect:queryItems";
         return "forward:queryItems";
 
     }
