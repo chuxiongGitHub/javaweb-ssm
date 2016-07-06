@@ -26,6 +26,10 @@
         <td><input type="text" name="price" value="${itemsCustomer.price}"></td>
     </tr>
     <tr>
+        <td>创建时间</td>
+        <td><input type="text" name="createtime" value="${itemsCustomer.createtime}"></td>
+    </tr>
+    <tr>
         <td>商品简介</td>
         <td><input type="text" name="detail" value="${itemsCustomer.detail}"></td>
     </tr>

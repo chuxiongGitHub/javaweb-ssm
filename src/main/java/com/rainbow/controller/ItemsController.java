@@ -56,10 +56,10 @@ public class ItemsController {
 
     //商品信息提交
     @RequestMapping(value = "/editItemsSubmit")
-    public String editItemsSubmit(HttpServletRequest request) throws Exception {
+    public String editItemsSubmit(HttpServletRequest request,Integer id,ItemsCustomer itemsCustomer) throws Exception {
         System.out.println("提交的id是："+request.getParameter("id"));
 //调用service更新商品信息，页面需要将商品信息传递到此方法
-
+itemsService.updateItems(id,itemsCustomer);
 //        ModelAndView modelAndView = new ModelAndView();
 ////测试返回一个成功页面
 //        modelAndView.setViewName("success");
