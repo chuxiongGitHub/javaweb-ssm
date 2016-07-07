@@ -38,11 +38,12 @@
 	<td></td>
 	<td>${data.name }</td>
 	<td>${data.price }</td>
-	<%--<td><fmt:formatDate value="${item.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>--%>
 	<td><fmt:formatDate value="${data.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 	<td>${data.detail }</td>
 	
-	<td><a class="btn btn-primary btn-sm" href="${pageContext.request.contextPath }/editItems?id=${data.id}">修改</a></td>
+	<td><a class="btn btn-primary btn-sm" href="${pageContext.request.contextPath }/editItems?id=${data.id}">修改</a>
+		<a class="btn btn-danger btn-sm" href="${pageContext.request.contextPath }/editItems?id=${data.id}">删除</a>
+	</td>
 
 </tr>
 </c:forEach>
