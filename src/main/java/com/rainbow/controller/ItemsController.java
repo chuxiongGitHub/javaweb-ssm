@@ -5,6 +5,7 @@ import com.rainbow.service.ItemsService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -58,6 +59,7 @@ public class ItemsController {
     @RequestMapping(value = "/editItemsSubmit")
     public String editItemsSubmit(HttpServletRequest request,Integer id,ItemsCustomer itemsCustomer) throws Exception {
         System.out.println("提交的id是："+request.getParameter("id"));
+        System.out.println("传递进来的name："+request.getParameter("name"));
 //调用service更新商品信息，页面需要将商品信息传递到此方法
 itemsService.updateItems(id,itemsCustomer);
 //        ModelAndView modelAndView = new ModelAndView();
@@ -67,5 +69,10 @@ itemsService.updateItems(id,itemsCustomer);
       // return "redirect:queryItems";
         return "forward:queryItems";
 
+    }
+
+    public String  insertItems(HttpServletRequest request,ItemsCustomer itemsCustomer,Model model)throws Exception{
+itemsService.insertItems(itemsCustomer);
+        return "forward:queryItems";
     }
 }

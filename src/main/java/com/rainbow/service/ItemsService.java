@@ -23,5 +23,6 @@ public interface ItemsService {
      */
     public void updateItems(Integer id,ItemsCustomer itemsCustomer)throws Exception;
 
+    public void insertItems(ItemsCustomer itemsCustomer)throws Exception;
 
 }

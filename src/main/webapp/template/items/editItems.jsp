@@ -7,13 +7,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>修改商品信息</title>
     <link rel="stylesheet" type="text/css" href="res/css/bootstrap.css">
 </head>
 <body>
-<form id="itemForm" action="${pageContext.request.contextPath}/editItemsSubmit" method="get">
+<form id="itemForm" action="${pageContext.request.contextPath}/editItemsSubmit" method="post">
 <input type="hidden" name="id" value="${itemsCustomer.id}">
     修改商品信息：
 <table class="table table-bordered table-hover">
@@ -27,7 +28,9 @@
     </tr>
     <tr>
         <td>创建时间</td>
-        <td><input type="text" name="createtime" value="${itemsCustomer.createtime}"></td>
+        <td>
+            <input type="text" name="createtime" value="<fmt:formatDate value="${itemsCustomer.createtime}" pattern="yyyy-MM-dd"/>"/>
+        </td>
     </tr>
     <tr>
         <td>商品简介</td>
@@ -35,7 +38,7 @@
     </tr>
     <tr>
         <td colspan="2" align="center">
-            <input type="submit" value="提交">
+            <input type="submit" value="提交" class="btn btn-primary">
         </td>
     </tr>
 </table>

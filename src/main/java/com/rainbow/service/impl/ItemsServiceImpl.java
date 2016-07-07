@@ -27,6 +27,10 @@ public class ItemsServiceImpl implements ItemsService {
         return itemsMapperCustomer.findItemsList(itemsQueryVo);
     }
 
+    public void insertItems(ItemsCustomer itemsCustomer) throws Exception {
+        itemsMapper.insert(itemsCustomer);
+    }
+
     /**
      * 根据id查询出商品信息
      *

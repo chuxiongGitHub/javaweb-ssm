@@ -1,0 +1,36 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2016/7/7
+  Time: 16:32
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>商品信息提交</title>
+    <link rel="stylesheet" type="text/css" href="res/css/bootstrap.css">
+</head>
+<body>
+<form action="${pageContext.request.contextPath}/insertItems" method="post">
+    <tr>
+        <td>商品名称</td>
+        <td><input type="text" name="name" value="${itemsCustomer.name}"></td>
+    </tr>
+    <tr>
+        <td>商品价格</td>
+        <td><input type="text" name="price" value="${itemsCustomer.price}"></td>
+    </tr>
+    <tr>
+        <td>商品简介</td>
+        <td><input type="text" name="detail" value="${itemsCustomer.detail}"></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <input type="submit" value="提交" class="btn btn-primary">
+        </td>
+    </tr>
+    </table>
+</form>
+</body>
+</html>

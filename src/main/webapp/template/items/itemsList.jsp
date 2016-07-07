@@ -15,13 +15,16 @@
 </head>
 <body> 
 <form action="${pageContext.request.contextPath }/queryItems" method="post">
+	<div>
+		<a href="template/items/itemsForm.jsp" class="btn bg-primary">新增产品</a>
+	</div>
 查询条件：
 	<div>
 		<input type="text">
-		<input type="submit" value="查询"/>
+		<input type="submit" value="查询" class="btn btn-primary"/>
 	</div>
 商品列表：
-<table class="table table-bordered table-hover">
+<table class="table table-striped">
 <tr>
 	<td>序号</td>
 	<td>商品名称</td>
@@ -39,7 +42,7 @@
 	<td><fmt:formatDate value="${data.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 	<td>${data.detail }</td>
 	
-	<td><a href="${pageContext.request.contextPath }/editItems?id=${data.id}">修改</a></td>
+	<td><a class="btn btn-primary btn-sm" href="${pageContext.request.contextPath }/editItems?id=${data.id}">修改</a></td>
 
 </tr>
 </c:forEach>
