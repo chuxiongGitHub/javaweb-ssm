@@ -12,18 +12,19 @@
     <link rel="stylesheet" type="text/css" href="res/css/bootstrap.css">
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/insertItems" method="post">
+<form action="${pageContext.request.contextPath}/editItemsSubmit" method="post">
+    <table class="table table-bordered">
     <tr>
         <td>商品名称</td>
-        <td><input type="text" name="name" value="${itemsCustomer.name}"></td>
+        <td><input type="text" name="name" ></td>
     </tr>
     <tr>
         <td>商品价格</td>
-        <td><input type="text" name="price" value="${itemsCustomer.price}"></td>
+        <td><input type="text" name="price" ></td>
     </tr>
     <tr>
         <td>商品简介</td>
-        <td><input type="text" name="detail" value="${itemsCustomer.detail}"></td>
+        <td><input type="text" name="detail" ></td>
     </tr>
     <tr>
         <td colspan="2" align="center">

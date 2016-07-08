@@ -10,12 +10,20 @@ import java.util.List;
  */
 public class ItemsQueryVo {
     private ItemsCustomer itemsCustomer;
-
+private List<ItemsCustomer> itemsList;
     public ItemsCustomer getItemsCustomer() {
         return itemsCustomer;
     }
 
     public void setItemsCustomer(ItemsCustomer itemsCustomer) {
         this.itemsCustomer = itemsCustomer;
+    }
+
+    public List<ItemsCustomer> getItemsList() {
+        return itemsList;
+    }
+
+    public void setItemsList(List<ItemsCustomer> itemsList) {
+        this.itemsList = itemsList;
     }
 }

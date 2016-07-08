@@ -1,5 +1,6 @@
 package com.rainbow.service;
 
+import com.rainbow.entity.Items;
 import com.rainbow.entity.ItemsCustomer;
 import com.rainbow.entity.ItemsQueryVo;
 
@@ -23,6 +24,9 @@ public interface ItemsService {
      */
     public void updateItems(Integer id,ItemsCustomer itemsCustomer)throws Exception;
 
-    public void insertItems(ItemsCustomer itemsCustomer)throws Exception;
+    public void insertItems(Items items)throws Exception;
+
+    //根据id删除商品
+    public void deleteById(Integer id)throws Exception;
 
 }

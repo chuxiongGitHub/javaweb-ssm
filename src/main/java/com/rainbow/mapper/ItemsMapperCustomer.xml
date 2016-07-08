@@ -4,16 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.rainbow.mapper.ItemsMapperCustomer">
     <!--定义SQL片段-->
+
     <sql id="query_items_where">
 <if test="itemsCustomer!=null">
     <if test="itemsCustomer.name!=null and itemsCustomer.name!=''">
-        items.NAME LIKE '$%{itemsCustomer.name}%'
+        items.NAME LIKE '%${itemsCustomer.name}%'
     </if>
 </if>
     </sql>
-    <!--商品的列表查询-->
+
     <select id="findItemsList" parameterType="itemsQueryVo" resultType="itemsCustomer">
-        select * from items
+        SELECT items.* FROM items
         <where>
          <include refid="query_items_where"/>
         </where>

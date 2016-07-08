@@ -27,8 +27,8 @@ public class ItemsServiceImpl implements ItemsService {
         return itemsMapperCustomer.findItemsList(itemsQueryVo);
     }
 
-    public void insertItems(ItemsCustomer itemsCustomer) throws Exception {
-        itemsMapper.insert(itemsCustomer);
+    public void insertItems(Items items) throws Exception {
+        itemsMapper.insert(items);
     }
 
     /**
@@ -57,5 +57,9 @@ public class ItemsServiceImpl implements ItemsService {
         itemsCustomer.setId(id);
         itemsMapper.updateByPrimaryKeyWithBLOBs(itemsCustomer);
 
+    }
+
+    public void deleteById(Integer id) throws Exception {
+        itemsMapper.deleteByPrimaryKey(id);
     }
 }
