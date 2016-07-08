@@ -28,7 +28,7 @@ public class ItemsController {
     private ItemsService itemsService;
 
     @RequestMapping(value = "/queryItems")
-    public ModelAndView queryItems(HttpServletRequest request,ItemsQueryVo itemsQueryVo) throws Exception {
+    public ModelAndView queryItems(HttpServletRequest request, ItemsQueryVo itemsQueryVo) throws Exception {
         //测试forward方法request是共享的，获取到id
         System.out.println("共享的id是：" + request.getParameter("id"));
         System.out.println("调用service方法获取数据");
@@ -70,7 +70,8 @@ public class ItemsController {
         return "forward:queryItems";
 
     }
-//插入数据
+
+    //插入数据
     @RequestMapping(value = "/insertItems")
     public String insertItems(HttpServletRequest request, Items items) throws Exception {
         itemsService.insertItems(items);
@@ -79,14 +80,15 @@ public class ItemsController {
 
     //删除
     @RequestMapping(value = "/deleteItems")
-    public String deleteItems(HttpServletRequest request,  Integer id) throws Exception {
+    public String deleteItems(HttpServletRequest request, Integer id) throws Exception {
         itemsService.deleteById(id);
         System.out.println("删除的id是：" + request.getParameter("id"));
 
         return "forward:queryItems";
     }
+
     //批量删除，使用数据的方式传入id
-    public String delList(Integer[] items_id)throws Exception{
+    public String delList(Integer[] items_id) throws Exception {
         //删除业务逻辑代码
         return "success";
     }
@@ -99,20 +101,23 @@ public class ItemsController {
 
     //批量修改商品的展示页面
     @RequestMapping(value = "/editItemsQuery")
-    public ModelAndView editItemsQuery(HttpServletRequest request,ItemsQueryVo itemsQueryVo)throws Exception{
-List<ItemsCustomer> itemsList=itemsService.findItemsList(itemsQueryVo);
-        System.out.println("得到的数据是："+itemsList.size()+"条");
-        ModelAndView modelAndView=new ModelAndView();
-        modelAndView.addObject("itemsList",itemsList);
+    public ModelAndView editItemsQuery(HttpServletRequest request, ItemsQueryVo itemsQueryVo) throws Exception {
+        List<ItemsCustomer> itemsList = itemsService.findItemsList(itemsQueryVo);
+        System.out.println("得到的数据是：" + itemsList.size() + "条");
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("itemsList", itemsList);
         modelAndView.setViewName("items/editItemsQuery");
 
         return modelAndView;
     }
+
     //批量提交商品信息
     //通过itemsQueryVo接收批量的商品信息，将商品信息批量的存储到itemsQueryVo中的itemsList属性
     @RequestMapping(value = "/editItemsAllSubmit")
-    public String editItemsAllSubmit(ItemsQueryVo itemsQueryVo)throws Exception{
+    public String editItemsAllSubmit(ItemsQueryVo itemsQueryVo) throws Exception {
 //业务逻辑代码
+
+
         return "success";
     }
 }
