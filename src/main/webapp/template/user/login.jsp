@@ -10,9 +10,9 @@
 <head>
     <title>简洁大气快速登录注册模板</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script type="text/javascript" src="../res/js/jquery-1.9.0.min.js"></script>
-    <script type="text/javascript" src="../res/images/login.js"></script>
-    <link href="../res/css/login2.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="res/js/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="res/images/login.js"></script>
+    <link href="res/css/login2.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
@@ -20,8 +20,8 @@
 
     <div class="header">
         <div class="switch" id="switch"><a class="switch_btn_focus" id="switch_qlogin" href="javascript:void(0);"
-                                           tabindex="7">快速登录</a>
-            <a class="switch_btn" id="switch_login" href="javascript:void(0);" tabindex="8">快速注册</a>
+                                           tabindex="7">登录</a>
+            <a class="switch_btn" id="switch_login" href="javascript:void(0);" tabindex="8">注册</a>
             <div class="switch_bottom" id="switch_bottom" style="position: absolute; width: 64px; left: 0px;"></div>
         </div>
     </div>
@@ -44,14 +44,14 @@
                             <label class="input-tips" for="u">帐号：</label>
                             <div class="inputOuter" id="uArea">
 
-                                <input type="text" id="u" name="username" class="inputstyle"/>
+                                <input type="text" id="u" name="username" class="inputstyle" placeholder="请输入账号"/>
                             </div>
                         </div>
                         <div class="pwdArea" id="pwdArea">
                             <label class="input-tips" for="p">密码：</label>
                             <div class="inputOuter" id="pArea">
 
-                                <input type="password" id="p" name="p" class="inputstyle"/>
+                                <input type="password" id="p" name="p" class="inputstyle" placeholder="请输入密码"/>
                             </div>
                         </div>
 

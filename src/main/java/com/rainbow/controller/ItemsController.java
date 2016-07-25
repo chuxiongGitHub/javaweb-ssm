@@ -11,10 +11,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by rainbow on 2016/6/24.
@@ -57,16 +60,36 @@ public class ItemsController {
 
     //商品信息提交
     @RequestMapping(value = "/editItemsSubmit")
-    public String editItemsSubmit(HttpServletRequest request, Integer id, ItemsCustomer itemsCustomer) throws Exception {
+    public String editItemsSubmit(HttpServletRequest request, Integer id,
+                                  ItemsCustomer itemsCustomer, MultipartFile items_pic) throws Exception {
         System.out.println("提交的id是：" + request.getParameter("id"));
         System.out.println("传递进来的name：" + request.getParameter("name"));
 //调用service更新商品信息，页面需要将商品信息传递到此方法
+/**
+        //上传图片
+        if(items_pic!=null){
+            //上传图片物理路径
+            String pic_path="C:\\javaWeb\\tmp\\";
+            //拿到上传图片的原始名称
+            String originalFileName=items_pic.getOriginalFilename();
+            //生成一个新的图片名称
+            String newFileName= UUID.randomUUID()+originalFileName.substring(originalFileName.lastIndexOf("."));
+            //新图片
+            File newFile=new File(pic_path+newFileName);
+            //将内存中的数据写入磁盘
+            items_pic.transferTo(newFile);
+            //如果上传成功，要将图片写入到itemsCustomer
+            itemsCustomer.setPic(newFileName);
+        }
+ **/
         itemsService.updateItems(id, itemsCustomer);
 //        ModelAndView modelAndView = new ModelAndView();
 ////测试返回一个成功页面
 //        modelAndView.setViewName("success");
 //        return modelAndView;
         // return "redirect:queryItems";
+
+
         return "forward:queryItems";
 
     }
